@@ -10,59 +10,44 @@ public class StatPartBeautyOffsets : StatPart
 {
     public override void TransformValue(StatRequest req, ref float val)
     {
-        if (TryGetBeauty(req.Thing, out var offset))
+        if (req.Thing is Pawn pawn)
         {
-            val += offset;
+            val += GetOffset(pawn);
         }
     }
 
     public override string ExplanationPart(StatRequest req)
     {
-        if (req.HasThing && TryGetBeauty(req.Thing, out var offset))
+        if (req.HasThing && req.Thing is Pawn pawn && GetOffset(pawn) != 0f)
         {
-            return "BeautyStatPart".Translate(offset.ToStringPercent());
+            return "BeautyStatPart".Translate(GetOffset(pawn).ToStringPercent());
         }
         return null;
     }
 
-    private bool TryGetBeauty(Thing t, out float offset)
+    private float GetOffset(Pawn pawn)
     {
-        if (t is Pawn pawn)
+        float pawnBeauty = pawn.GetStatValue(StatDefOf.PawnBeauty);
+        if (parentStat.Equals(StatDefOf.SocialImpact))
         {
-            float pawnBeauty = pawn.GetStatValue(StatDefOf.PawnBeauty);
-            if (parentStat.Equals(StatDefOf.SocialImpact))
-            {
-                offset = pawnBeauty * (BeautyStatSettings.SocialImpactStatFactor / 100f);
-                return true;
-            }
-            if (parentStat.Equals(StatDefOf.NegotiationAbility))
-            {
-                offset = pawnBeauty * (BeautyStatSettings.NegotiationStatFactor / 100f);
-                return true;
-            }
-            if (ModsConfig.IdeologyActive && parentStat.Equals(StatDefOf.SuppressionPower))
-            {
-                offset = pawnBeauty * (BeautyStatSettings.SuppressionStatFactor / 100f);
-                return true;
-            }
-            if (ModsConfig.IdeologyActive && parentStat.Equals(StatDefOf.ConversionPower))
-            {
-                offset = pawnBeauty * (BeautyStatSettings.ConversionStatFactor / 100f);
-                return true;
-            }
-            if (parentStat.Equals(StatDefOf.TradePriceImprovement))
-            {
-                offset = Mathf.Clamp(pawnBeauty * (BeautyStatSettings.TradePriceStatFactor / 100f), -.4f, .4f);
-                return true;
-            }
-            else
-            {
-                offset = 0f;
-                return true;
-            }
-
+            return pawnBeauty * BeautyStatSettings.SocialImpactStatFactor;
         }
-        offset = 0f;
-        return false;
+        if (parentStat.Equals(StatDefOf.NegotiationAbility))
+        {
+            return pawnBeauty * BeautyStatSettings.NegotiationStatFactor;
+        }
+        if (ModsConfig.IdeologyActive && parentStat.Equals(StatDefOf.SuppressionPower))
+        {
+            return pawnBeauty * BeautyStatSettings.SuppressionStatFactor;
+        }
+        if (ModsConfig.IdeologyActive && parentStat.Equals(StatDefOf.ConversionPower))
+        {
+            return pawnBeauty * BeautyStatSettings.ConversionStatFactor;
+        }
+        if (parentStat.Equals(StatDefOf.TradePriceImprovement))
+        {
+            return Mathf.Clamp(pawnBeauty * BeautyStatSettings.TradePriceStatFactor, -.4f, .4f);
+        }
+        return 0f;
     }
 }

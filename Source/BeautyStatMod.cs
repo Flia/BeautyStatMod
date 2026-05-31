@@ -17,29 +17,29 @@ public class BeautyStatMod : Mod
         Listing_Standard list = new();
 
         list.Begin(inRect);
-        list.Label("NegotiationStatFactor".Translate() + ": " + BeautyStatSettings.NegotiationStatFactor + "%");
-        BeautyStatSettings.NegotiationStatFactor = list.Slider(BeautyStatSettings.NegotiationStatFactor, 0, 40f);
-        list.Label("TradePriceStatFactor".Translate() + ": " + BeautyStatSettings.TradePriceStatFactor + "%");
-        BeautyStatSettings.TradePriceStatFactor = list.Slider(BeautyStatSettings.TradePriceStatFactor, 0, 40f);
-        list.Label("SocialImpactStatFactor".Translate() + ": " + BeautyStatSettings.SocialImpactStatFactor + "%");
-        BeautyStatSettings.SocialImpactStatFactor = list.Slider(BeautyStatSettings.SocialImpactStatFactor, 0, 40f);
+        list.Label("NegotiationStatFactor".Translate(BeautyStatSettings.NegotiationStatFactor.ToStringPercent()));
+        BeautyStatSettings.NegotiationStatFactor = list.Slider(BeautyStatSettings.NegotiationStatFactor, 0, 0.4f);
+        list.Label("TradePriceStatFactor".Translate(BeautyStatSettings.TradePriceStatFactor.ToStringPercent()));
+        BeautyStatSettings.TradePriceStatFactor = list.Slider(BeautyStatSettings.TradePriceStatFactor, 0, 0.4f);
+        list.Label("SocialImpactStatFactor".Translate(BeautyStatSettings.SocialImpactStatFactor.ToStringPercent()));
+        BeautyStatSettings.SocialImpactStatFactor = list.Slider(BeautyStatSettings.SocialImpactStatFactor, 0, 0.4f);
         if (ModsConfig.IdeologyActive)
         {
-            list.Label("SuppressionStatFactor".Translate() + ": " + BeautyStatSettings.SuppressionStatFactor + "%");
-            BeautyStatSettings.SuppressionStatFactor = list.Slider(BeautyStatSettings.SuppressionStatFactor, 0, 40f);
-            list.Label("ConversionStatFactor".Translate() + ": " + BeautyStatSettings.ConversionStatFactor + "%");
-            BeautyStatSettings.ConversionStatFactor = list.Slider(BeautyStatSettings.ConversionStatFactor, 0, 40f);
+            list.Label("SuppressionStatFactor".Translate(BeautyStatSettings.SuppressionStatFactor.ToStringPercent()));
+            BeautyStatSettings.SuppressionStatFactor = list.Slider(BeautyStatSettings.SuppressionStatFactor, 0, 0.4f);
+            list.Label("ConversionStatFactor".Translate(BeautyStatSettings.ConversionStatFactor.ToStringPercent()));
+            BeautyStatSettings.ConversionStatFactor = list.Slider(BeautyStatSettings.ConversionStatFactor, 0, 0.4f);
         }
 
         list.Gap(28f);
 
         if (list.ButtonText("RestoreToDefaultSettings".Translate()))
         {
-            BeautyStatSettings.NegotiationStatFactor = 20f;
-            BeautyStatSettings.ConversionStatFactor = 20f;
-            BeautyStatSettings.TradePriceStatFactor = 10f;
-            BeautyStatSettings.SuppressionStatFactor = 5f;
-            BeautyStatSettings.SocialImpactStatFactor = 20f;
+            BeautyStatSettings.NegotiationStatFactor = 0.2f;
+            BeautyStatSettings.ConversionStatFactor = 0.2f;
+            BeautyStatSettings.TradePriceStatFactor = 0.1f;
+            BeautyStatSettings.SuppressionStatFactor = 0.05f;
+            BeautyStatSettings.SocialImpactStatFactor = 0.2f;
         }
         list.End();
     }

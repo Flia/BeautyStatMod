@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-	<NegotiationStatFactor>Beauty will increase all Negotiation Impact by this amount per 1 beauty</NegotiationStatFactor>
-	<ConversionStatFactor>Beauty will increase all Conversion by this amount per 1 beauty</ConversionStatFactor>
-	<TradePriceStatFactor>Beauty will increase all Trade Price Improvement by this amount per 1 beauty</TradePriceStatFactor>
-	<SuppressionStatFactor>Beauty will increase all Suppression by this amount per 1 beauty</SuppressionStatFactor>
-	<SocialImpactStatFactor>Beauty will increase all Social Impact by this amount per 1 beauty</SocialImpactStatFactor>
+	<NegotiationStatFactor>Beauty will increase all Negotiation Impact by this amount per 1 beauty: {0}</NegotiationStatFactor>
+	<ConversionStatFactor>Beauty will increase all Conversion by this amount per 1 beauty: {0}</ConversionStatFactor>
+	<TradePriceStatFactor>Beauty will increase all Trade Price Improvement by this amount per 1 beauty: {0}</TradePriceStatFactor>
+	<SuppressionStatFactor>Beauty will increase all Suppression by this amount per 1 beauty: {0}</SuppressionStatFactor>
+	<SocialImpactStatFactor>Beauty will increase all Social Impact by this amount per 1 beauty: {0}</SocialImpactStatFactor>
 	<BeautyStatSettings>Beauty Matters</BeautyStatSettings>
 	<BeautyStatPart>Pawn Beauty Multiplier: +{0}</BeautyStatPart>
 </LanguageData>
