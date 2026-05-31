@@ -1,12 +1,13 @@
 <ModMetaData>
 	<name>Beauty Matters</name>
-	<author>InertialMage</author>
-    <packageId>InertialMage.BeautyStatMod</packageId>
+	<author>InertialMage, royallyTipsy</author>
+    <packageId>royallyTipsy.BeautyStatMod</packageId>
 	<supportedVersions>
-		<li>1.4</li>
-		<li>1.5</li>
 		<li>1.6</li>
 	</supportedVersions>
-	<description>A patch that allows beauty to affect more social stats instead of capping out at 2</description>
+	<description>1.6 version of InertialMage's mod, without dependency on XML extensions.</description>
 	<url>https://steamcommunity.com/id/InertialMage/myworkshopfiles/?appid=294100</url>
+	<loadAfter>
+		<li>Ludeon.RimWorld</li>
+	</loadAfter>
 </ModMetaData>
