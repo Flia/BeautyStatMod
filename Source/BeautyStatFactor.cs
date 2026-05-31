@@ -1,14 +1,13 @@
-﻿using RimWorld;
+﻿using JetBrains.Annotations;
+using RimWorld;
 using UnityEngine;
 using Verse;
 
 namespace BeautyStatMod;
 
+[UsedImplicitly]
 public class StatPartBeautyOffsets : StatPart
 {
-    public float startsAt = 0.01f;
-    public float endsAt = -0.01f;
-
     public override void TransformValue(StatRequest req, ref float val)
     {
         if (TryGetBeauty(req.Thing, out var offset))
@@ -21,7 +20,7 @@ public class StatPartBeautyOffsets : StatPart
     {
         if (req.HasThing && TryGetBeauty(req.Thing, out var offset))
         {
-            return "Pawn Beauty Multiplier" + (": +" + offset.ToStringPercent());
+            return "BeautyStatPart".Translate(offset.ToStringPercent());
         }
         return null;
     }
@@ -30,35 +29,30 @@ public class StatPartBeautyOffsets : StatPart
     {
         if (t is Pawn pawn)
         {
-            float num = pawn.GetStatValue(StatDefOf.PawnBeauty);
+            float pawnBeauty = pawn.GetStatValue(StatDefOf.PawnBeauty);
             if (parentStat.Equals(StatDefOf.SocialImpact))
             {
-                float num1 = LoadedModManager.GetMod<BeautyStatMod>().GetSettings<BeautyStatSettings>().SocialImpactStatFactor / 100f;
-                offset = num * num1;
+                offset = pawnBeauty * (BeautyStatSettings.SocialImpactStatFactor / 100f);
                 return true;
             }
             if (parentStat.Equals(StatDefOf.NegotiationAbility))
             {
-                float num1 = LoadedModManager.GetMod<BeautyStatMod>().GetSettings<BeautyStatSettings>().NegotiationStatFactor / 100f;
-                offset = num * num1;
+                offset = pawnBeauty * (BeautyStatSettings.NegotiationStatFactor / 100f);
                 return true;
             }
-            if (parentStat.Equals(StatDefOf.SuppressionPower))
+            if (ModsConfig.IdeologyActive && parentStat.Equals(StatDefOf.SuppressionPower))
             {
-                float num1 = LoadedModManager.GetMod<BeautyStatMod>().GetSettings<BeautyStatSettings>().SuppressionStatFactor / 100f;
-                offset = num * num1;
+                offset = pawnBeauty * (BeautyStatSettings.SuppressionStatFactor / 100f);
                 return true;
             }
-            if (parentStat.Equals(StatDefOf.ConversionPower))
+            if (ModsConfig.IdeologyActive && parentStat.Equals(StatDefOf.ConversionPower))
             {
-                float num1 = LoadedModManager.GetMod<BeautyStatMod>().GetSettings<BeautyStatSettings>().ConversionStatFactor / 100f;
-                offset = num * num1;
+                offset = pawnBeauty * (BeautyStatSettings.ConversionStatFactor / 100f);
                 return true;
             }
             if (parentStat.Equals(StatDefOf.TradePriceImprovement))
             {
-                float num1 = LoadedModManager.GetMod<BeautyStatMod>().GetSettings<BeautyStatSettings>().TradePriceStatFactor / 100f;
-                offset = Mathf.Clamp(num * num1, -.4f, .4f);
+                offset = Mathf.Clamp(pawnBeauty * (BeautyStatSettings.TradePriceStatFactor / 100f), -.4f, .4f);
                 return true;
             }
             else

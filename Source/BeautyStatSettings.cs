@@ -2,15 +2,14 @@
 
 namespace BeautyStatMod;
 
+//TODO: apparently there was an idea of implementing a setting for using either linear or square root curve. Not interested rn but maybe later --tipsy
 public class BeautyStatSettings : ModSettings
 {
-    public float NegotiationStatFactor = 20f;
-    public float ConversionStatFactor = 20f;
-    public float TradePriceStatFactor = 10f;
-    public float SuppressionStatFactor = 5f;
-    public float SocialImpactStatFactor = 20f;
-    //public bool exampleBool = true;
-    //public StatFormula StatBeautyFormula = StatFormula.Linear;
+    public static float NegotiationStatFactor = 20f;
+    public static float ConversionStatFactor = 20f;
+    public static float TradePriceStatFactor = 10f;
+    public static float SuppressionStatFactor = 5f;
+    public static float SocialImpactStatFactor = 20f;
     public override void ExposeData()
     {
         base.ExposeData();
@@ -19,9 +18,5 @@ public class BeautyStatSettings : ModSettings
         Scribe_Values.Look(ref TradePriceStatFactor, "TradePriceStatFactor", 10f);
         Scribe_Values.Look(ref SuppressionStatFactor, "SuppressionStatFactor", 5f);
         Scribe_Values.Look(ref SocialImpactStatFactor, "SocialImpactStatFactor", 20f);
-        //Scribe_Values.Look(ref StatBeautyFormula, "StatBeautyFormula", StatFormula.Linear);
-
-        //Scribe_Values.Look(ref ManipulationAffects, "ManipulationAffects", true);
-        //Scribe_Values.Look(ref ManipulationMoreForDamage, "ManipulationMoreForDamage", true);
     }
 }

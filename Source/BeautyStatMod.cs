@@ -5,7 +5,7 @@ namespace BeautyStatMod;
 
 public class BeautyStatMod : Mod
 {
-    public BeautyStatSettings settings;
+    public readonly BeautyStatSettings settings;
 
     public BeautyStatMod(ModContentPack content) : base(content)
     {
@@ -17,38 +17,35 @@ public class BeautyStatMod : Mod
         Listing_Standard list = new();
 
         list.Begin(inRect);
-        list.Label("NegotiationStatFactor".Translate() + ": " + settings.NegotiationStatFactor + "%");
-        settings.NegotiationStatFactor = list.Slider(settings.NegotiationStatFactor, 0, 40f);
-        list.Label("ConversionStatFactor".Translate() + ": " + settings.ConversionStatFactor + "%");
-        settings.ConversionStatFactor = list.Slider(settings.ConversionStatFactor, 0, 40f);
-        list.Label("TradePriceStatFactor".Translate() + ": " + settings.TradePriceStatFactor + "%");
-        settings.TradePriceStatFactor = list.Slider(settings.TradePriceStatFactor, 0, 40f);
-        list.Label("SuppressionStatFactor".Translate() + ": " + settings.SuppressionStatFactor + "%");
-        settings.SuppressionStatFactor = list.Slider(settings.SuppressionStatFactor, 0, 40f);
-        list.Label("SocialImpactStatFactor".Translate() + ": " + settings.SocialImpactStatFactor + "%");
-        settings.SocialImpactStatFactor = list.Slider(settings.SocialImpactStatFactor, 0, 40f);
-        /*list.CheckboxLabeled("TypeofScaling", ref settings.exampleBool);
-        foreach (var label in Enum.GetNames(typeof(StatFormula)))
+        list.Label("NegotiationStatFactor".Translate() + ": " + BeautyStatSettings.NegotiationStatFactor + "%");
+        BeautyStatSettings.NegotiationStatFactor = list.Slider(BeautyStatSettings.NegotiationStatFactor, 0, 40f);
+        list.Label("TradePriceStatFactor".Translate() + ": " + BeautyStatSettings.TradePriceStatFactor + "%");
+        BeautyStatSettings.TradePriceStatFactor = list.Slider(BeautyStatSettings.TradePriceStatFactor, 0, 40f);
+        list.Label("SocialImpactStatFactor".Translate() + ": " + BeautyStatSettings.SocialImpactStatFactor + "%");
+        BeautyStatSettings.SocialImpactStatFactor = list.Slider(BeautyStatSettings.SocialImpactStatFactor, 0, 40f);
+        if (ModsConfig.IdeologyActive)
         {
-            var val = (StatFormula)Enum.Parse(typeof(StatFormula), label);
-            if (list.RadioButton(label.Translate(), settings.StatBeautyFormula == val, 8f)) settings.StatBeautyFormula = val;
-        }*/
+            list.Label("SuppressionStatFactor".Translate() + ": " + BeautyStatSettings.SuppressionStatFactor + "%");
+            BeautyStatSettings.SuppressionStatFactor = list.Slider(BeautyStatSettings.SuppressionStatFactor, 0, 40f);
+            list.Label("ConversionStatFactor".Translate() + ": " + BeautyStatSettings.ConversionStatFactor + "%");
+            BeautyStatSettings.ConversionStatFactor = list.Slider(BeautyStatSettings.ConversionStatFactor, 0, 40f);
+        }
+
         list.Gap(28f);
 
         if (list.ButtonText("RestoreToDefaultSettings".Translate()))
         {
-            settings.NegotiationStatFactor = 20f;
-            settings.ConversionStatFactor = 20f;
-            settings.TradePriceStatFactor = 10f;
-            settings.SuppressionStatFactor = 5f;
-            settings.SocialImpactStatFactor = 20f;
+            BeautyStatSettings.NegotiationStatFactor = 20f;
+            BeautyStatSettings.ConversionStatFactor = 20f;
+            BeautyStatSettings.TradePriceStatFactor = 10f;
+            BeautyStatSettings.SuppressionStatFactor = 5f;
+            BeautyStatSettings.SocialImpactStatFactor = 20f;
         }
         list.End();
-        //base.DoSettingsWindowContents(inRect);
     }
 
     public override string SettingsCategory()
     {
-        return "Beauty Stat Settings";
+        return "BeautyStatSettings".Translate();
     }
 }

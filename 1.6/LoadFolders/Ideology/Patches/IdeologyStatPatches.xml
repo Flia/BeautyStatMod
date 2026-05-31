@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Patch>
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="SuppressionPower"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="SuppressionPower"]</xpath>
+            <value>
+                <parts><li Class="BeautyStatMod.StatPartBeautyOffsets" /></parts>
+            </value>
+        </nomatch>
+        <match Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="SuppressionPower"]/parts</xpath>
+            <value>
+                <li Class="BeautyStatMod.StatPartBeautyOffsets" />
+            </value>
+        </match>
+    </Operation>
+
+    <Operation Class="PatchOperationConditional">
+        <xpath>Defs/StatDef[defName="ConversionPower"]/parts</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="ConversionPower"]</xpath>
+            <value>
+                <parts><li Class="BeautyStatMod.StatPartBeautyOffsets" /></parts>
+            </value>
+        </nomatch>
+        <match Class="PatchOperationAdd">
+            <xpath>Defs/StatDef[defName="ConversionPower"]/parts</xpath>
+            <value>
+                <li Class="BeautyStatMod.StatPartBeautyOffsets" />
+            </value>
+        </match>
+    </Operation>
+</Patch>

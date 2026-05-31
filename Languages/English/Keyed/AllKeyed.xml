@@ -5,6 +5,6 @@
 	<TradePriceStatFactor>Beauty will increase all Trade Price Improvement by this amount per 1 beauty</TradePriceStatFactor>
 	<SuppressionStatFactor>Beauty will increase all Suppression by this amount per 1 beauty</SuppressionStatFactor>
 	<SocialImpactStatFactor>Beauty will increase all Social Impact by this amount per 1 beauty</SocialImpactStatFactor>
-	<Linear>Linear</Linear>
-	<SquareRoot>Square Root</SquareRoot>
+	<BeautyStatSettings>Beauty Matters</BeautyStatSettings>
+	<BeautyStatPart>Pawn Beauty Multiplier: +{0}</BeautyStatPart>
 </LanguageData>
