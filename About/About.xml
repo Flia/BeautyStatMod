@@ -6,7 +6,7 @@
 		<li>1.6</li>
 	</supportedVersions>
 	<description>1.6 version of InertialMage's mod, without dependency on XML extensions.</description>
-	<url>https://steamcommunity.com/id/InertialMage/myworkshopfiles/?appid=294100</url>
+	<url>https://github.com/Flia/BeautyStatMod</url>
 	<loadAfter>
 		<li>Ludeon.RimWorld</li>
 	</loadAfter>
