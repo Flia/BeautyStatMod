@@ -1,7 +1,7 @@
 <ModMetaData>
 	<name>Beauty Matters</name>
 	<author>InertialMage, royallyTipsy</author>
-    <packageId>royallyTipsy.BeautyStatMod</packageId>
+	<packageId>royallyTipsy.BeautyStatMod</packageId>
 	<supportedVersions>
 		<li>1.6</li>
 	</supportedVersions>
