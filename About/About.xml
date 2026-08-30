@@ -9,5 +9,6 @@
 	<url>https://github.com/Flia/BeautyStatMod</url>
 	<loadAfter>
 		<li>Ludeon.RimWorld</li>
+		<li>Ludeon.RimWorld.Ideology</li>
 	</loadAfter>
 </ModMetaData>

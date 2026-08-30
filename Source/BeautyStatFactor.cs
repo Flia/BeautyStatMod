@@ -20,7 +20,7 @@ public class StatPartBeautyOffsets : StatPart
     {
         if (req.HasThing && req.Thing is Pawn pawn && GetOffset(pawn) != 0f)
         {
-            return "BeautyStatPart".Translate(GetOffset(pawn).ToStringPercent());
+            return "BeautyStatMod_BeautyStatPart".Translate(GetOffset(pawn).ToStringPercent());
         }
         return null;
     }

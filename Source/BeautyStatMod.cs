@@ -1,3 +1,5 @@
+using System;
+using JetBrains.Annotations;
 using UnityEngine;
 using Verse;
 
@@ -5,8 +7,8 @@ namespace BeautyStatMod;
 
 public class BeautyStatMod : Mod
 {
+    [UsedImplicitly]
     public readonly BeautyStatSettings settings;
-
     public BeautyStatMod(ModContentPack content) : base(content)
     {
         settings = GetSettings<BeautyStatSettings>();
@@ -17,23 +19,23 @@ public class BeautyStatMod : Mod
         Listing_Standard list = new();
 
         list.Begin(inRect);
-        list.Label("NegotiationStatFactor".Translate(BeautyStatSettings.NegotiationStatFactor.ToStringPercent()));
-        BeautyStatSettings.NegotiationStatFactor = list.Slider(BeautyStatSettings.NegotiationStatFactor, 0, 0.4f);
-        list.Label("TradePriceStatFactor".Translate(BeautyStatSettings.TradePriceStatFactor.ToStringPercent()));
-        BeautyStatSettings.TradePriceStatFactor = list.Slider(BeautyStatSettings.TradePriceStatFactor, 0, 0.4f);
-        list.Label("SocialImpactStatFactor".Translate(BeautyStatSettings.SocialImpactStatFactor.ToStringPercent()));
-        BeautyStatSettings.SocialImpactStatFactor = list.Slider(BeautyStatSettings.SocialImpactStatFactor, 0, 0.4f);
+        list.Label("BeautyStatMod_NegotiationStatFactor".Translate(BeautyStatSettings.NegotiationStatFactor.ToStringPercent()));
+        BeautyStatSettings.NegotiationStatFactor = list.Slider(MathF.Round(BeautyStatSettings.NegotiationStatFactor, 2), 0, 0.4f);
+        list.Label("BeautyStatMod_TradePriceStatFactor".Translate(BeautyStatSettings.TradePriceStatFactor.ToStringPercent()));
+        BeautyStatSettings.TradePriceStatFactor = list.Slider(MathF.Round(BeautyStatSettings.TradePriceStatFactor, 2), 0, 0.4f);
+        list.Label("BeautyStatMod_SocialImpactStatFactor".Translate(BeautyStatSettings.SocialImpactStatFactor.ToStringPercent()));
+        BeautyStatSettings.SocialImpactStatFactor = list.Slider(MathF.Round(BeautyStatSettings.SocialImpactStatFactor, 2), 0, 0.4f);
         if (ModsConfig.IdeologyActive)
         {
-            list.Label("SuppressionStatFactor".Translate(BeautyStatSettings.SuppressionStatFactor.ToStringPercent()));
-            BeautyStatSettings.SuppressionStatFactor = list.Slider(BeautyStatSettings.SuppressionStatFactor, 0, 0.4f);
-            list.Label("ConversionStatFactor".Translate(BeautyStatSettings.ConversionStatFactor.ToStringPercent()));
-            BeautyStatSettings.ConversionStatFactor = list.Slider(BeautyStatSettings.ConversionStatFactor, 0, 0.4f);
+            list.Label("BeautyStatMod_SuppressionStatFactor".Translate(BeautyStatSettings.SuppressionStatFactor.ToStringPercent()));
+            BeautyStatSettings.SuppressionStatFactor = list.Slider(MathF.Round(BeautyStatSettings.SuppressionStatFactor, 2), 0, 0.4f);
+            list.Label("BeautyStatMod_ConversionStatFactor".Translate(BeautyStatSettings.ConversionStatFactor.ToStringPercent()));
+            BeautyStatSettings.ConversionStatFactor = list.Slider(MathF.Round(BeautyStatSettings.ConversionStatFactor, 2), 0, 0.4f);
         }
 
         list.Gap(28f);
 
-        if (list.ButtonText("RestoreToDefaultSettings".Translate()))
+        if (list.ButtonText("BeautyStatMod_RestoreDefaultSettings".Translate()))
         {
             BeautyStatSettings.NegotiationStatFactor = 0.2f;
             BeautyStatSettings.ConversionStatFactor = 0.2f;
@@ -44,8 +46,5 @@ public class BeautyStatMod : Mod
         list.End();
     }
 
-    public override string SettingsCategory()
-    {
-        return "BeautyStatSettings".Translate();
-    }
+    public override string SettingsCategory() => "BeautyStatMod_BeautyStatSettings".Translate();
 }

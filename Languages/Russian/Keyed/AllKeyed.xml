@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+    <BeautyStatMod_NegotiationStatFactor>Способность к переговорам будет увеличиваться на {0} за каждый 1 пункт красоты</BeautyStatMod_NegotiationStatFactor>
+    <BeautyStatMod_ConversionStatFactor>Эффективность обращения будет увеличиваться на {0} за каждый 1 пункт красоты</BeautyStatMod_ConversionStatFactor>
+    <BeautyStatMod_TradePriceStatFactor>Улучшение торговой цены будет увеличиваться на {0} за каждый 1 пункт красоты</BeautyStatMod_TradePriceStatFactor>
+    <BeautyStatMod_SuppressionStatFactor>Эффективность подавления рабов будет увеличиваться на {0} за каждый 1 пункт красоты</BeautyStatMod_SuppressionStatFactor>
+    <BeautyStatMod_SocialImpactStatFactor>Социальное влияние будет увеличиваться на {0} за каждый 1 пункт красоты</BeautyStatMod_SocialImpactStatFactor>
+    <BeautyStatMod_BeautyStatSettings>Beauty Matters</BeautyStatMod_BeautyStatSettings>
+    <BeautyStatMod_BeautyStatPart>Фактор красоты: +{0}</BeautyStatMod_BeautyStatPart>
+    <BeautyStatMod_RestoreDefaultSettings>Восстановить настройки по умолчанию</BeautyStatMod_RestoreDefaultSettings>
+</LanguageData>

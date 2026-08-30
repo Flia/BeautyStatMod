@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <LanguageData>
-	<NegotiationStatFactor>Beauty will increase all Negotiation Impact by this amount per 1 beauty: {0}</NegotiationStatFactor>
-	<ConversionStatFactor>Beauty will increase all Conversion by this amount per 1 beauty: {0}</ConversionStatFactor>
-	<TradePriceStatFactor>Beauty will increase all Trade Price Improvement by this amount per 1 beauty: {0}</TradePriceStatFactor>
-	<SuppressionStatFactor>Beauty will increase all Suppression by this amount per 1 beauty: {0}</SuppressionStatFactor>
-	<SocialImpactStatFactor>Beauty will increase all Social Impact by this amount per 1 beauty: {0}</SocialImpactStatFactor>
-	<BeautyStatSettings>Beauty Matters</BeautyStatSettings>
-	<BeautyStatPart>Pawn Beauty Multiplier: +{0}</BeautyStatPart>
+	<BeautyStatMod_NegotiationStatFactor>Beauty will increase all Negotiation Impact by {0} per 1 beauty</BeautyStatMod_NegotiationStatFactor>
+	<BeautyStatMod_ConversionStatFactor>Beauty will increase all Conversion by {0} per 1 beauty</BeautyStatMod_ConversionStatFactor>
+	<BeautyStatMod_TradePriceStatFactor>Beauty will increase all Trade Price Improvement by {0} per 1 beauty</BeautyStatMod_TradePriceStatFactor>
+	<BeautyStatMod_SuppressionStatFactor>Beauty will increase all Suppression by {0} per 1 beauty</BeautyStatMod_SuppressionStatFactor>
+	<BeautyStatMod_SocialImpactStatFactor>Beauty will increase all Social Impact by {0} per 1 beauty</BeautyStatMod_SocialImpactStatFactor>
+	<BeautyStatMod_BeautyStatSettings>Beauty Matters</BeautyStatMod_BeautyStatSettings>
+	<BeautyStatMod_BeautyStatPart>Beauty multiplier: +{0}</BeautyStatMod_BeautyStatPart>
+	<BeautyStatMod_RestoreDefaultSettings>Restore default settings</BeautyStatMod_RestoreDefaultSettings>
 </LanguageData>
