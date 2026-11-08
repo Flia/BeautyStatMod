@@ -11,7 +11,7 @@ public class BeautyStatMod : Mod
     public readonly BeautyStatSettings settings;
     public BeautyStatMod(ModContentPack content) : base(content)
     {
-        settings = GetSettings<BeautyStatSettings>();
+        GetSettings<BeautyStatSettings>();
     }
 
     public override void DoSettingsWindowContents(Rect inRect)

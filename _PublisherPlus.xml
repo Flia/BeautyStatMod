@@ -4,7 +4,6 @@
   <Excluded>
     <exclude>.git</exclude>
     <exclude>.idea</exclude>
-    <exclude>BeautyStatMod.sln</exclude>
-    <exclude>Source</exclude>
+    <exclude>Source\obj</exclude>
   </Excluded>
 </Configuration>

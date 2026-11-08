@@ -1,20 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net48</TargetFramework>
+    <_RimWorldVersion>1.7</_RimWorldVersion>
+    
+    <!-- props unique to this project -->
     <RootNamespace>BeautyStatMod</RootNamespace>
     <AssemblyName>BeautyStatMod</AssemblyName>
+    <OutputPath>..\$(_RimWorldVersion)\Assemblies\</OutputPath>
+    
+    <!-- general setup -->
     <LangVersion>latest</LangVersion>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <GenerateDependencyFile>false</GenerateDependencyFile>
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     <DebugType>embedded</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>..\1.6\Assemblies\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <Configurations>Release</Configurations>
+    <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
+
+  <Choose>
+    <When Condition="'$(_RimWorldVersion)' == '1.7'">
+      <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+      </PropertyGroup>
+    </Otherwise>
+  </Choose>
+
   <ItemGroup>
-    <PackageReference Include="Krafs.Rimworld.Ref" Version="1.6.*"/>
+    <PackageReference Include="Krafs.Rimworld.Ref" Version="$(_RimWorldVersion).*-*"/>
   </ItemGroup>
 </Project>
